@@ -1,21 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
-
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -58,77 +45,53 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-teal: var(--teal);
+  --color-teal-foreground: var(--teal-foreground);
+  --color-teal-light: var(--teal-light);
+  --color-wifi-bg: var(--wifi-bg);
+  --color-emergency: var(--emergency);
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.75rem;
+  --background: oklch(0.99 0.002 180);
+  --foreground: oklch(0.22 0.03 195);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.22 0.03 195);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.22 0.03 195);
+  --primary: oklch(0.25 0.03 195);
+  --primary-foreground: oklch(0.98 0.005 180);
+  --secondary: oklch(0.96 0.01 180);
+  --secondary-foreground: oklch(0.25 0.03 195);
+  --muted: oklch(0.96 0.008 180);
+  --muted-foreground: oklch(0.50 0.02 195);
+  --accent: oklch(0.72 0.1 185);
+  --accent-foreground: oklch(0.20 0.03 195);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --destructive-foreground: oklch(0.98 0.005 180);
+  --border: oklch(0.92 0.008 180);
+  --input: oklch(0.92 0.008 180);
+  --ring: oklch(0.72 0.1 185);
+  --teal: oklch(0.72 0.1 185);
+  --teal-foreground: oklch(0.20 0.03 195);
+  --teal-light: oklch(0.95 0.03 185);
+  --wifi-bg: oklch(0.93 0.04 185);
+  --emergency: oklch(0.577 0.245 27.325);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
-
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --sidebar: oklch(0.25 0.03 195);
+  --sidebar-foreground: oklch(0.98 0.005 180);
+  --sidebar-primary: oklch(0.72 0.1 185);
+  --sidebar-primary-foreground: oklch(0.98 0.005 180);
+  --sidebar-accent: oklch(0.30 0.03 195);
+  --sidebar-accent-foreground: oklch(0.98 0.005 180);
+  --sidebar-border: oklch(0.35 0.03 195);
+  --sidebar-ring: oklch(0.72 0.1 185);
 }
 
 @layer base {
@@ -139,5 +102,54 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-2xl mx-auto px-4 py-6 pb-24 md:pb-6;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold text-primary mb-1;
+  }
+
+  .page-subtitle {
+    @apply text-muted-foreground text-sm mb-6;
+  }
+
+  .info-card {
+    @apply bg-card rounded-xl border p-4 shadow-sm;
+  }
+
+  .wifi-card {
+    @apply bg-teal-light rounded-xl p-5 border border-accent/20;
+  }
+
+  .tab-bar {
+    @apply fixed bottom-0 left-0 right-0 z-50 bg-card border-t flex justify-around items-center h-16 md:hidden;
+  }
+
+  .tab-item {
+    @apply flex flex-col items-center justify-center gap-0.5 text-[10px] font-medium text-muted-foreground transition-colors;
+  }
+
+  .tab-item-active {
+    @apply text-accent;
+  }
+
+  .floating-contact {
+    @apply fixed bottom-20 right-4 z-40 md:bottom-6 md:right-6 bg-accent text-accent-foreground rounded-full shadow-lg hover:shadow-xl transition-all;
+  }
+
+  .rule-card {
+    @apply flex items-start gap-3 bg-card rounded-xl border p-4;
+  }
+
+  .explore-chip {
+    @apply inline-block bg-secondary text-secondary-foreground rounded-full px-3 py-1.5 text-sm font-medium;
   }
 }
